@@ -2,7 +2,7 @@ from optparse import make_option
 
 from django.core.management.base import BaseCommand
 
-from pypi.tasks import synchronize_mirror
+from pypi.tasks import synchronize
 
 
 class Command(BaseCommand):
@@ -19,6 +19,6 @@ class Command(BaseCommand):
         else:
             since = 0
 
-        synchronize_mirror.delay(since=since)
+        synchronize.delay(since=since)
 
         print "Done"
